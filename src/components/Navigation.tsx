@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,27 +24,33 @@ export default function Navigation() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">E</span>
             </div>
             <span className="text-xl font-bold text-foreground">EFEKT</span>
-          </div>
+          </Link>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors">
+            <Link 
+              to="/" 
+              className={`transition-colors ${location.pathname === '/' ? 'text-primary font-medium' : 'text-foreground hover:text-primary'}`}
+            >
               Home
-            </a>
+            </Link>
             <a href="#solutions" className="text-foreground hover:text-primary transition-colors">
               Solutions
             </a>
             <a href="#products" className="text-foreground hover:text-primary transition-colors">
               Products
             </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
+            <Link 
+              to="/about" 
+              className={`transition-colors ${location.pathname === '/about' ? 'text-primary font-medium' : 'text-foreground hover:text-primary'}`}
+            >
               About
-            </a>
+            </Link>
             <a href="#contact" className="text-foreground hover:text-primary transition-colors">
               Contact
             </a>
