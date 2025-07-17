@@ -8,35 +8,53 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Premium warm neutrals inspired by both brands */
+    --background: 30 15% 98%;
+    --foreground: 20 8% 20%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 30 15% 98%;
+    --card-foreground: 20 8% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 30 15% 98%;
+    --popover-foreground: 20 8% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Rich warm dark primary */
+    --primary: 20 15% 15%;
+    --primary-foreground: 30 15% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Warm secondary tones */
+    --secondary: 25 10% 92%;
+    --secondary-foreground: 20 8% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 25 8% 94%;
+    --muted-foreground: 20 6% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Warm accent with subtle warmth */
+    --accent: 35 25% 88%;
+    --accent-foreground: 20 8% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 30 15% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 25 8% 88%;
+    --input: 25 8% 88%;
+    --ring: 20 15% 15%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Premium gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(20, 15%, 15%), hsl(25, 12%, 22%));
+    --gradient-warm: linear-gradient(180deg, hsl(30, 15%, 98%), hsl(25, 10%, 95%));
+    --gradient-hero: linear-gradient(135deg, hsl(30, 15%, 98%) 0%, hsl(25, 10%, 92%) 100%);
+    
+    /* Premium shadows */
+    --shadow-premium: 0 20px 40px -10px hsl(20, 15%, 15%, 0.15);
+    --shadow-warm: 0 8px 32px -8px hsl(20, 15%, 15%, 0.1);
+    --shadow-soft: 0 4px 16px -4px hsl(20, 15%, 15%, 0.08);
+
+    /* Animation timing */
+    --transition-premium: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
