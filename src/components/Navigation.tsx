@@ -1,17 +1,39 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
+
+const SECTIONS = [
+  { id: 'home', label: 'Home' },
+  { id: 'who-we-serve', label: 'Who We Serve' },
+  { id: 'panel-types', label: 'Panel Types' },
+  { id: 'how-it-works', label: 'How It Works' },
+  { id: 'why-choose-us', label: 'Why Choose Us' },
+  { id: 'gallery', label: 'Gallery' },
+  { id: 'contact', label: 'Contact' },
+];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const location = useLocation()
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+      // Find the section currently in view
+      let current = 'home';
+      for (const section of SECTIONS) {
+        const el = document.getElementById(section.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 80 && rect.bottom > 80) {
+            current = section.id;
+            break;
+          }
+        }
+      }
+      setActiveSection(current);
     }
-    
     window.addEventListener('scroll', handleScroll)
+    handleScroll(); // set on mount
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -24,46 +46,42 @@ export default function Navigation() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <a href="#home" className="flex items-center space-x-2 cursor-pointer">
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">E</span>
             </div>
             <span className="text-xl font-bold text-foreground">EFEKT</span>
-          </Link>
+          </a>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              to="/" 
-              className={`transition-colors ${location.pathname === '/' ? 'text-primary font-medium' : 'text-foreground hover:text-primary'}`}
-            >
-              Home
-            </Link>
-            <a href="#solutions" className="text-foreground hover:text-primary transition-colors">
-              Solutions
-            </a>
-            <a href="#products" className="text-foreground hover:text-primary transition-colors">
-              Products
-            </a>
-            <Link 
-              to="/about" 
-              className={`transition-colors ${location.pathname === '/about' ? 'text-primary font-medium' : 'text-foreground hover:text-primary'}`}
-            >
-              About
-            </Link>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">
-              Contact
-            </a>
+            {SECTIONS.map((section) => (
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                className={`transition-colors ${
+                  activeSection === section.id
+                    ? 'text-primary font-medium'
+                    : 'text-foreground hover:text-primary'
+                }`}
+              >
+                {section.label}
+              </a>
+            ))}
           </div>
 
           {/* CTA Button */}
           <div className="flex items-center space-x-4">
-            <Button variant="minimal" size="sm" className="hidden md:inline-flex">
-              Get Quote
-            </Button>
-            <Button variant="hero" size="sm">
-              Shop Now
-            </Button>
+            <a href="#contact" className="hidden md:inline-flex">
+              <Button variant="minimal" size="sm">
+                Get Quote
+              </Button>
+            </a>
+            <a href="https://wa.me/971588629216" target="_blank" rel="noopener noreferrer">
+              <Button variant="hero" size="sm">
+                Chat on WhatsApp
+              </Button>
+            </a>
           </div>
         </div>
       </div>

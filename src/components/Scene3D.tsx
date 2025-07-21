@@ -2,6 +2,9 @@ import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Environment, PerspectiveCamera } from '@react-three/drei'
 import AcousticPanel3D from './AcousticPanel3D'
+import * as THREE from 'three'
+import { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
 
 interface Scene3DProps {
   className?: string
@@ -51,7 +54,6 @@ export default function Scene3D({ className = "", interactive = true }: Scene3DP
             color="#ddd0c1"
             scale={0.9}
           />
-          
           {/* Background panels for depth */}
           <AcousticPanel3D 
             position={[0, 2, -4]} 
@@ -67,7 +69,17 @@ export default function Scene3D({ className = "", interactive = true }: Scene3DP
             color="#cfc0b1"
             scale={0.7}
           />
+
+          {/* Subtle 3D Elements - Reduced and more subtle */}
+          {/* Single floating sphere - smaller and more subtle */}
+          <mesh position={[2, 2.5, 1]} castShadow receiveShadow>
+            <sphereGeometry args={[0.15, 32, 32]} />
+            <meshStandardMaterial color="#7dd3fc" metalness={0.5} roughness={0.2} transparent opacity={0.6} />
+          </mesh>
           
+          {/* Rotating Torus - smaller and more subtle */}
+          <RotatingTorus position={[-2, 0.5, -2]} color="#f472b6" />
+
           {/* Controls */}
           {interactive && (
             <OrbitControls
@@ -75,7 +87,7 @@ export default function Scene3D({ className = "", interactive = true }: Scene3DP
               enableZoom={false}
               enableRotate={true}
               autoRotate={true}
-              autoRotateSpeed={0.5}
+              autoRotateSpeed={0.3}
               maxPolarAngle={Math.PI / 2}
               minPolarAngle={Math.PI / 4}
             />
@@ -83,5 +95,22 @@ export default function Scene3D({ className = "", interactive = true }: Scene3DP
         </Suspense>
       </Canvas>
     </div>
+  )
+}
+
+// Rotating Torus component - smaller size
+function RotatingTorus({ position, color }: { position: [number, number, number], color: string }) {
+  const ref = useRef<THREE.Mesh>(null)
+  useFrame((state) => {
+    if (ref.current) {
+      ref.current.rotation.x += 0.008
+      ref.current.rotation.y += 0.01
+    }
+  })
+  return (
+    <mesh ref={ref} position={position} castShadow receiveShadow>
+      <torusGeometry args={[0.2, 0.05, 16, 100]} />
+      <meshStandardMaterial color={color} metalness={0.6} roughness={0.25} transparent opacity={0.5} />
+    </mesh>
   )
 }
