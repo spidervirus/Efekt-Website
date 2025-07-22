@@ -65,7 +65,7 @@ export default function HeroSection() {
             {/* Subheadline */}
             <p className="text-lg lg:text-xl text-white leading-relaxed mb-8 drop-shadow-lg font-medium">
               Wall and ceiling acoustic solutions for offices, villas, studios, and commercial spaces.<br />
-              <span className="block mt-2 text-white font-semibold">Fast Installation | 100% Made-to-Fit | Free Expert Consultation</span>
+              <span className="block mt-2 text-white font-semibold bg-black/30 border border-white/20 rounded-lg px-4 py-2 backdrop-blur-sm">Fast Installation | 100% Made-to-Fit | Free Expert Consultation</span>
             </p>
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -149,7 +149,7 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+      <div className="absolute bottom-16 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
         <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center">
           <div className="w-1 h-3 bg-muted-foreground rounded-full mt-2 animate-pulse"></div>
         </div>
