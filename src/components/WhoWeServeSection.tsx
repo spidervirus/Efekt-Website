@@ -1,23 +1,26 @@
-import { Building2, Home, Mic, School } from 'lucide-react';
+import officeSpaceImg from '../assets/Office_space.jpg';
+import villaImg from '../assets/villa.jpg.webp';
+import studioImg from '../assets/sound&podcast.jpg';
+import restaurantImg from '../assets/restaurant.jpg.webp';
 
 const audiences = [
   {
-    icon: Building2,
+    image: officeSpaceImg,
     title: 'Office Spaces',
     description: 'Reduce echo in meeting rooms & open work areas',
   },
   {
-    icon: Home,
+    image: villaImg,
     title: 'Villas & Apartments',
     description: 'Soundproof bedrooms, home theaters & living rooms',
   },
   {
-    icon: Mic,
+    image: studioImg,
     title: 'Studios & Podcasts',
     description: 'Create pro-level recording environments',
   },
   {
-    icon: School,
+    image: restaurantImg,
     title: 'Restaurants & Schools',
     description: 'Control noise in busy spaces',
   },
@@ -25,22 +28,37 @@ const audiences = [
 
 export default function WhoWeServeSection() {
   return (
-    <section id="who-we-serve" className="py-20 bg-background scroll-mt-24">
-      <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">Who Needs Acoustic Panels?</h2>
-        <p className="text-center text-lg text-muted-foreground mb-10">No matter the space — if it echoes, we’ll fix it.</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+    <section id="who-we-serve" className="py-24 bg-gradient-to-b from-gray-50 to-white scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Who Needs Acoustic Panels?</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">No matter the space — if it echoes, we'll fix it.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {audiences.map((aud, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center p-4 bg-white rounded-xl shadow-sm">
-              <div className="mb-4 bg-gray-100 rounded-full p-4 flex items-center justify-center">
-                <aud.icon className="w-8 h-8 text-primary" />
+            <div key={idx} className="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden border border-gray-100">
+              {/* Image Container */}
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={aud.image} 
+                  alt={aud.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <h3 className="text-lg font-semibold mb-2">{aud.title}</h3>
-              <p className="text-gray-600 text-base">{aud.description}</p>
+              
+              {/* Content Container */}
+              <div className="p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">{aud.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-sm">{aud.description}</p>
+              </div>
+              
+              {/* Hover Accent */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </div>
           ))}
         </div>
       </div>
     </section>
   );
-} 
+}

@@ -4,7 +4,7 @@ import WhoWeServeSection from '@/components/WhoWeServeSection'
 import PanelTypesSection from '@/components/PanelTypesSection'
 import HowItWorksSection from '@/components/HowItWorksSection'
 import WhyChooseUsSection from '@/components/WhyChooseUsSection'
-import GallerySection from '@/components/GallerySection'
+// import GallerySection from '@/components/GallerySection'
 import ContactSection from '@/components/ContactSection'
 import ProductViewer3D from '@/components/ProductViewer3D'
 
@@ -18,7 +18,7 @@ const Index = () => {
       <ProductViewer3D />
       <HowItWorksSection />
       <WhyChooseUsSection />
-      <GallerySection />
+      {/* <GallerySection /> */}
       <ContactSection />
     </div>
   );
