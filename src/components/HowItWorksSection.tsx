@@ -25,19 +25,19 @@ export default function HowItWorksSection() {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm relative">
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold border-4 border-white shadow">
+            <div key={idx} className="flex flex-col items-center text-center p-6 bg-black rounded-xl shadow-lg relative border border-gray-800">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold border-4 border-black shadow">
                 {idx + 1}
               </div>
-              <div className="mb-4 mt-8 bg-gray-100 rounded-full p-4 flex items-center justify-center">
-                <step.icon className="w-8 h-8 text-primary" />
+              <div className="mb-4 mt-8 bg-white/10 rounded-full p-4 flex items-center justify-center">
+                <step.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-              <p className="text-gray-600 text-base">{step.description}</p>
+              <h3 className="text-lg font-semibold mb-2 text-white">{step.title}</h3>
+              <p className="text-gray-300 text-base">{step.description}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
   );
-} 
+}
