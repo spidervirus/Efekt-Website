@@ -3,7 +3,7 @@ import { Phone, Ruler, Hammer } from 'lucide-react';
 const steps = [
   {
     icon: Phone,
-    title: 'Free Consultation',
+    title: 'Sound Consultation',
     description: 'We assess your space (on-site or virtually) and understand your sound problem.'
   },
   {
