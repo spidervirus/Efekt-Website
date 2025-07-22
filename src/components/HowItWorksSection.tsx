@@ -1,8 +1,8 @@
-import { PhoneCall, Ruler, Hammer } from 'lucide-react';
+import { Phone, Ruler, Hammer } from 'lucide-react';
 
 const steps = [
   {
-    icon: PhoneCall,
+    icon: Phone,
     title: 'Free Consultation',
     description: 'We assess your space (on-site or virtually) and understand your sound problem.'
   },
