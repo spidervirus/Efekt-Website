@@ -73,7 +73,7 @@ export default function ContactSection() {
               placeholder="Tell us about your space"
             />
           </div>
-          <button type="submit" className="w-full bg-primary text-white font-semibold py-3 rounded-lg hover:bg-primary/90 transition">Get My Free Quote</button>
+          <button type="submit" className="w-full bg-primary text-white font-semibold py-3 rounded-lg hover:bg-primary/90 transition">Book Your Site Assessment</button>
           <a
             href="https://wa.me/971588629216"
             target="_blank"
@@ -86,4 +86,4 @@ export default function ContactSection() {
       </div>
     </section>
   );
-} 
+}

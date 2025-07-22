@@ -69,12 +69,6 @@ export default function HeroSection() {
             </p>
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <Button variant="hero" size="xl" className="group bg-white text-black hover:bg-gray-100 border-white" onClick={handleScrollToForm}>
-                Book Your Site Assessment
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Button>
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <Button variant="minimal" size="xl">
                   Chat on WhatsApp
@@ -145,7 +139,7 @@ export default function HeroSection() {
                     type="submit" 
                     className="w-full bg-primary text-white font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200"
                   >
-                    Get My Free Quote
+                    Book Your Site Assessment
                   </button>
                 </form>
               </div>
