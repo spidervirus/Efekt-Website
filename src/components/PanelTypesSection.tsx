@@ -1,29 +1,27 @@
-import { LayoutPanelLeft, Layers, Lightbulb, Sparkles, Grid3X3 } from 'lucide-react';
-
 const panelTypes = [
   {
-    icon: LayoutPanelLeft,
+    icon: '🏢',
     title: 'Wall Panels',
     description: 'Slim, stylish, and built to absorb sound — ideal for offices, bedrooms, and studios.'
   },
   {
-    icon: Layers,
+    icon: '🏗️',
     title: 'Ceiling Panels',
     description: 'Discreet overhead panels that drastically reduce echo in large or open spaces.',
     variants: ['Ceiling Baffles', 'Ceiling Clouds']
   },
   {
-    icon: Lightbulb,
+    icon: '💡',
     title: 'Acoustic Lighting',
     description: 'Innovative lighting solutions that combine illumination with sound absorption for modern spaces.'
   },
   {
-    icon: Grid3X3,
+    icon: '🔲',
     title: 'Partitions',
     description: 'Sound-absorbing room dividers that create privacy while reducing noise between spaces.'
   },
   {
-    icon: Sparkles,
+    icon: '✨',
     title: 'Custom Designs',
     description: 'You choose the shape, size, color, and material. We deliver a solution that fits — acoustically and visually.'
   }
@@ -38,7 +36,7 @@ export default function PanelTypesSection() {
           {panelTypes.map((type, idx) => (
             <div key={idx} className="flex flex-col items-center text-center p-6 bg-black rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="mb-4 bg-white/10 rounded-full p-4 flex items-center justify-center">
-                <type.icon className="w-8 h-8 text-white" />
+                <span className="text-2xl">{type.icon}</span>
               </div>
               <h3 className="text-lg font-semibold mb-2 text-white">{type.title}</h3>
               <p className="text-gray-300 text-base mb-3">{type.description}</p>
