@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react'
+// Removed lucide-react import to fix module error
 import { Button } from '@/components/ui/button'
 import Scene3D from './Scene3D'
 import SoundWave3D from './SoundWave3D'
@@ -59,19 +59,21 @@ export default function HeroSection() {
           {/* Left Content */}
           <div className="flex flex-col justify-center">
             {/* Headline */}
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent leading-tight drop-shadow-2xl mb-6 filter brightness-110">
-              Custom Acoustic Panels in UAE – <span className="block bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">Engineered to Silence Noise</span>
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight drop-shadow-2xl mb-6">
+              Custom Acoustic Panels in UAE – <span className="block">Engineered to Silence Noise</span>
             </h1>
             {/* Subheadline */}
-            <p className="text-lg lg:text-xl text-white/90 leading-relaxed mb-8 drop-shadow-lg font-medium">
+            <p className="text-lg lg:text-xl text-white leading-relaxed mb-8 drop-shadow-lg font-medium">
               Wall and ceiling acoustic solutions for offices, villas, studios, and commercial spaces.<br />
-              <span className="block mt-2 text-blue-100 font-semibold">Fast Installation | 100% Made-to-Fit | Free Expert Consultation</span>
+              <span className="block mt-2 text-white font-semibold">Fast Installation | 100% Made-to-Fit | Free Expert Consultation</span>
             </p>
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Button variant="hero" size="xl" className="group" onClick={handleScrollToForm}>
                 Book Your Site Assessment
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </Button>
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <Button variant="minimal" size="xl">
