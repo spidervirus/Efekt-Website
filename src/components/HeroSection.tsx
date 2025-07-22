@@ -78,7 +78,7 @@ export default function HeroSection() {
             <p className="text-lg lg:text-xl text-white leading-relaxed mb-8 drop-shadow-lg font-medium">
               <span className="hidden md:inline">Wall and ceiling acoustic solutions for offices, villas, studios, and commercial spaces.<br /></span>
               <span className="block mt-4 text-white font-semibold bg-gradient-to-r from-black/40 to-purple-900/40 border border-white/30 rounded-xl px-6 py-3 backdrop-blur-md shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                ✨ Fast Installation | 🎯 100% Made-to-Fit | 💬 Free Expert Consultation
+                 Fast Installation | 100% Made-to-Fit | Free Expert Consultation
               </span>
             </p>
             {/* CTA Buttons */}
