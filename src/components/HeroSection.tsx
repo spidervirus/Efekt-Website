@@ -59,13 +59,13 @@ export default function HeroSection() {
           {/* Left Content */}
           <div className="flex flex-col justify-center">
             {/* Headline */}
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight drop-shadow-lg mb-6">
-              Custom Acoustic Panels in UAE – <span className="block">Engineered to Silence Noise</span>
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent leading-tight drop-shadow-2xl mb-6 filter brightness-110">
+              Custom Acoustic Panels in UAE – <span className="block bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">Engineered to Silence Noise</span>
             </h1>
             {/* Subheadline */}
-            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed mb-8 drop-shadow">
+            <p className="text-lg lg:text-xl text-white/90 leading-relaxed mb-8 drop-shadow-lg font-medium">
               Wall and ceiling acoustic solutions for offices, villas, studios, and commercial spaces.<br />
-              <span className="block mt-2">Fast Installation | 100% Made-to-Fit | Free Expert Consultation</span>
+              <span className="block mt-2 text-blue-100 font-semibold">Fast Installation | 100% Made-to-Fit | Free Expert Consultation</span>
             </p>
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
