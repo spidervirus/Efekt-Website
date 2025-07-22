@@ -43,12 +43,13 @@ export default function PanelTypesSection() {
               <h3 className="text-lg font-semibold mb-2 text-white">{type.title}</h3>
               <p className="text-gray-300 text-base mb-3">{type.description}</p>
               {type.variants && (
-                <div className="mt-2">
-                  <div className="flex flex-col gap-1">
+                <div className="mt-4">
+                  <div className="w-8 h-px bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-3"></div>
+                  <div className="space-y-2">
                     {type.variants.map((variant, variantIdx) => (
-                      <span key={variantIdx} className="text-sm text-blue-400 bg-blue-400/10 px-2 py-1 rounded-md">
+                      <div key={variantIdx} className="text-sm text-blue-300 bg-blue-500/20 px-3 py-2 rounded-lg border border-blue-400/30 hover:bg-blue-500/30 transition-colors duration-200">
                         {variant}
-                      </span>
+                      </div>
                     ))}
                   </div>
                 </div>
