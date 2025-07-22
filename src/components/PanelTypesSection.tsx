@@ -4,6 +4,7 @@ import ceilingCloudImg from '../assets/cielingcloud.jpg';
 import acousticLightingImg from '../assets/accousticimage.jpg';
 import partitionImg from '../assets/partiion.jpeg';
 import { useState, useEffect } from 'react';
+import { Phone } from 'lucide-react';
 
 const panelTypes = [
   {
@@ -94,6 +95,17 @@ export default function PanelTypesSection() {
                     </div>
                   </div>
                 )}
+                
+                {/* Enquire Button */}
+                <a 
+                  href={`https://wa.me/971588629216?text=Hi, I'm interested in ${type.title}. Can you provide more information?`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  Enquire Now
+                </a>
               </div>
               
               {/* Hover Accent */}
