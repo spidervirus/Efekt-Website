@@ -7,7 +7,6 @@ const SECTIONS = [
   { id: 'panel-types', label: 'Panel Types' },
   { id: 'how-it-works', label: 'How It Works' },
   { id: 'why-choose-us', label: 'Why Choose Us' },
-  { id: 'gallery', label: 'Gallery' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -50,7 +49,7 @@ export default function Navigation() {
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">E</span>
             </div>
-            <span className="text-xl font-bold text-foreground">EFEKT</span>
+            <span className="text-xl font-bold text-white">EFEKT</span>
           </a>
 
           {/* Navigation Links */}
@@ -62,7 +61,7 @@ export default function Navigation() {
                 className={`transition-colors ${
                   activeSection === section.id
                     ? 'text-primary font-medium'
-                    : 'text-foreground hover:text-primary'
+                    : 'text-white hover:text-primary'
                 }`}
               >
                 {section.label}
