@@ -1,4 +1,4 @@
-import { LayoutPanelLeft, Layers, Lightbulb, Sparkles, Split } from 'lucide-react';
+import { LayoutPanelLeft, Layers, Lightbulb, Sparkles, Grid3x3 } from 'lucide-react';
 
 const panelTypes = [
   {
@@ -17,7 +17,7 @@ const panelTypes = [
     description: 'Innovative lighting solutions that combine illumination with sound absorption for modern spaces.'
   },
   {
-    icon: Split,
+    icon: Grid3x3,
     title: 'Partitions',
     description: 'Sound-absorbing room dividers that create privacy while reducing noise between spaces.'
   },
