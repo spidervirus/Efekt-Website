@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import Scene3D from './Scene3D'
 import SoundWave3D from './SoundWave3D'
 import { useState } from 'react'
+import heroImage from '../assets/herosection.jpeg'
 
 const valueProps = [
   { icon: Leaf, label: 'Eco-Friendly' },
@@ -47,11 +48,14 @@ export default function HeroSection() {
   const whatsappLink = 'https://wa.me/971588629216';
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-hero pt-24">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24" style={{ backgroundImage: `url(${heroImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/50 z-0"></div>
+      
       {/* 3D Sound Wave Background */}
-      <SoundWave3D className="z-0" style={{ opacity: 0.4 }} />
+      <SoundWave3D className="z-1" style={{ opacity: 0.2 }} />
       {/* 3D Panel Background */}
-      <div className="absolute inset-0 w-full h-full opacity-40 z-0">
+      <div className="absolute inset-0 w-full h-full opacity-20 z-1">
         <Scene3D interactive={true} />
       </div>
 
