@@ -1,4 +1,4 @@
-import { LayoutPanelLeft, Layers, Lightbulb, Sparkles, Grid3x3 } from 'lucide-react';
+import { LayoutPanelLeft, Layers, Lightbulb, Sparkles, Grid3X3 } from 'lucide-react';
 
 const panelTypes = [
   {
@@ -9,7 +9,8 @@ const panelTypes = [
   {
     icon: Layers,
     title: 'Ceiling Panels',
-    description: 'Discreet overhead panels that drastically reduce echo in large or open spaces.'
+    description: 'Discreet overhead panels that drastically reduce echo in large or open spaces.',
+    variants: ['Ceiling Baffles', 'Ceiling Clouds']
   },
   {
     icon: Lightbulb,
@@ -17,7 +18,7 @@ const panelTypes = [
     description: 'Innovative lighting solutions that combine illumination with sound absorption for modern spaces.'
   },
   {
-    icon: Grid3x3,
+    icon: Grid3X3,
     title: 'Partitions',
     description: 'Sound-absorbing room dividers that create privacy while reducing noise between spaces.'
   },
@@ -40,7 +41,18 @@ export default function PanelTypesSection() {
                 <type.icon className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-white">{type.title}</h3>
-              <p className="text-gray-300 text-base">{type.description}</p>
+              <p className="text-gray-300 text-base mb-3">{type.description}</p>
+              {type.variants && (
+                <div className="mt-2">
+                  <div className="flex flex-col gap-1">
+                    {type.variants.map((variant, variantIdx) => (
+                      <span key={variantIdx} className="text-sm text-blue-400 bg-blue-400/10 px-2 py-1 rounded-md">
+                        {variant}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
