@@ -64,7 +64,7 @@ export default function HeroSection() {
             </h1>
             {/* Subheadline */}
             <p className="text-lg lg:text-xl text-white leading-relaxed mb-8 drop-shadow-lg font-medium">
-              Wall and ceiling acoustic solutions for offices, villas, studios, and commercial spaces.<br />
+              <span className="hidden md:inline">Wall and ceiling acoustic solutions for offices, villas, studios, and commercial spaces.<br /></span>
               <span className="block mt-2 text-white font-semibold bg-black/30 border border-white/20 rounded-lg px-4 py-2 backdrop-blur-sm">Fast Installation | 100% Made-to-Fit | Free Expert Consultation</span>
             </p>
             {/* CTA Buttons */}
