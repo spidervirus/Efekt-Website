@@ -1,15 +1,9 @@
-import { ArrowRight, Volume2, VolumeX, Leaf, Globe, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Scene3D from './Scene3D'
 import SoundWave3D from './SoundWave3D'
 import { useState } from 'react'
 import heroImage from '../assets/herosection.jpeg'
-
-const valueProps = [
-  { icon: Leaf, label: 'Eco-Friendly' },
-  { icon: Globe, label: 'UAE-Made' },
-  { icon: Sparkles, label: 'Custom Designs' },
-]
 
 const stats = [
   { value: '500+', label: 'Projects' },
