@@ -6,46 +6,19 @@ import * as THREE from 'three'
 // Product data
 const panelTypes = [
   {
-    id: 'wall-panel',
-    name: 'Wall Panel',
-    description: 'Slim, stylish, and built to absorb sound — ideal for offices, bedrooms, and studios.',
+    id: 'panels',
+    name: 'Panels',
+    description: 'High-quality acoustic panels designed to absorb sound and enhance your space aesthetically.',
     specs: {
-      thickness: '25mm',
-      coverage: '2.4m²',
-      absorption: '0.85 NRC',
-      weight: '3.2kg'
+      thickness: '25-35mm',
+      coverage: '2.4-3.0m²',
+      absorption: '0.85-0.90 NRC',
+      weight: '3.2-4.1kg'
     },
-    colors: ['#d4c5b0', '#c8b89f', '#ddd0c1', '#e8ddd2'],
-    patterns: ['geometric', 'linear', 'hexagon', 'dots']
+    colors: ['#d4c5b0', '#c8b89f', '#ddd0c1', '#e8ddd2', '#8b7355', '#a0956b', '#f5f5f4', '#e7e5e4', '#d6d3d1', '#a8a29e', '#6b7280', '#374151']
   },
   {
-    id: 'ceiling-panel',
-    name: 'Ceiling Panel',
-    description: 'Discreet overhead panels that drastically reduce echo in large or open spaces.',
-    specs: {
-      thickness: '30mm',
-      coverage: '3.0m²',
-      absorption: '0.90 NRC',
-      weight: '4.1kg'
-    },
-    colors: ['#f5f5f4', '#e7e5e4', '#d6d3d1', '#a8a29e'],
-    patterns: ['linear', 'geometric', 'hexagon', 'dots']
-  },
-  {
-    id: 'office-panel',
-    name: 'Office Sound Panel',
-    description: 'Tailored acoustic systems for corporate settings with branding-friendly finishes.',
-    specs: {
-      thickness: '35mm',
-      coverage: '2.8m²',
-      absorption: '0.88 NRC',
-      weight: '3.8kg'
-    },
-    colors: ['#1e40af', '#1d4ed8', '#2563eb', '#3b82f6'],
-    patterns: ['linear', 'geometric', 'custom', 'dots']
-  },
-  {
-    id: 'custom-panel',
+    id: 'custom-design',
     name: 'Custom Design',
     description: 'You choose the shape, size, color, and material. We deliver a solution that fits — acoustically and visually.',
     specs: {
@@ -54,105 +27,24 @@ const panelTypes = [
       absorption: '0.85+ NRC',
       weight: 'Variable'
     },
-    colors: ['#ef4444', '#f97316', '#eab308', '#22c55e'],
-    patterns: ['custom', 'geometric', 'linear', 'hexagon']
+    colors: ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#8b5cf6', '#ec4899', '#06b6d4', '#10b981', '#f59e0b', '#84cc16', '#6366f1']
   }
 ]
 
 // 3D Acoustic Panel Component
 function AcousticPanel3D({ 
-  type = 'wall-panel', 
+  type = 'panels', 
   color = '#d4c5b0', 
-  pattern = 'geometric',
   scale = 1,
-  position = [0, 0, 0],
-  rotation = [0, 0, 0],
+  position = [0, 0, 0] as [number, number, number],
+  rotation = [0, 0, 0] as [number, number, number],
   interactive = true,
   onPanelClick = null
 }) {
   const meshRef = useRef<THREE.Mesh>(null)
   const [hovered, setHovered] = useState(false)
 
-  // Create pattern texture
-  const createPatternTexture = (patternType: string, color: string) => {
-    const canvas = document.createElement('canvas')
-    canvas.width = 256
-    canvas.height = 256
-    const ctx = canvas.getContext('2d')!
-    
-    ctx.fillStyle = color
-    ctx.fillRect(0, 0, 256, 256)
-    
-    ctx.strokeStyle = '#ffffff'
-    ctx.lineWidth = 2
-    ctx.globalAlpha = 0.1
-    
-    switch (patternType) {
-      case 'geometric':
-        // Geometric pattern
-        for (let i = 0; i < 8; i++) {
-          for (let j = 0; j < 8; j++) {
-            ctx.beginPath()
-            ctx.rect(i * 32, j * 32, 32, 32)
-            ctx.stroke()
-          }
-        }
-        break
-      case 'linear':
-        // Linear pattern
-        for (let i = 0; i < 16; i++) {
-          ctx.beginPath()
-          ctx.moveTo(0, i * 16)
-          ctx.lineTo(256, i * 16)
-          ctx.stroke()
-        }
-        break
-      case 'hexagon':
-        // Hexagon pattern
-        const size = 20
-        for (let i = 0; i < 12; i++) {
-          for (let j = 0; j < 12; j++) {
-            const x = i * size * 1.5
-            const y = j * size * 1.3 + (i % 2) * size * 0.65
-            drawHexagon(ctx, x, y, size)
-          }
-        }
-        break
-      case 'dots':
-        // Dots pattern
-        for (let i = 0; i < 16; i++) {
-          for (let j = 0; j < 16; j++) {
-            ctx.beginPath()
-            ctx.arc(i * 16 + 8, j * 16 + 8, 2, 0, Math.PI * 2)
-            ctx.fill()
-          }
-        }
-        break
-    }
-    
-    const texture = new THREE.CanvasTexture(canvas)
-    texture.wrapS = THREE.RepeatWrapping
-    texture.wrapT = THREE.RepeatWrapping
-    texture.repeat.set(4, 4)
-    return texture
-  }
-
-  const drawHexagon = (ctx: CanvasRenderingContext2D, x: number, y: number, size: number) => {
-    ctx.beginPath()
-    for (let i = 0; i < 6; i++) {
-      const angle = (i * Math.PI) / 3
-      const px = x + size * Math.cos(angle)
-      const py = y + size * Math.sin(angle)
-      if (i === 0) ctx.moveTo(px, py)
-      else ctx.lineTo(px, py)
-    }
-    ctx.closePath()
-    ctx.stroke()
-  }
-
-  const texture = createPatternTexture(pattern, color)
   const material = new THREE.MeshStandardMaterial({
-    map: texture,
     roughness: 0.8,
     metalness: 0.1,
     color: color
@@ -166,7 +58,7 @@ function AcousticPanel3D({
 
   const handleClick = () => {
     if (onPanelClick) {
-      onPanelClick({ type, color, pattern })
+      onPanelClick({ type, color })
     }
   }
 
@@ -192,12 +84,10 @@ function AcousticPanel3D({
 function ProductViewerScene({ 
   selectedPanel, 
   selectedColor, 
-  selectedPattern,
   onPanelClick 
 }: {
   selectedPanel: string
   selectedColor: string
-  selectedPattern: string
   onPanelClick: (data: any) => void
 }) {
   const panelData = panelTypes.find(p => p.id === selectedPanel) || panelTypes[0]
@@ -225,7 +115,6 @@ function ProductViewerScene({
       <AcousticPanel3D
         type={selectedPanel}
         color={selectedColor}
-        pattern={selectedPattern}
         position={[0, 0, 0]}
         rotation={[0, 0.2, 0]}
         scale={1.2}
@@ -236,7 +125,6 @@ function ProductViewerScene({
       <AcousticPanel3D
         type={selectedPanel}
         color={selectedColor}
-        pattern={selectedPattern}
         position={[-2.5, 0.5, -1]}
         rotation={[0, -0.3, 0]}
         scale={0.8}
@@ -245,7 +133,6 @@ function ProductViewerScene({
       <AcousticPanel3D
         type={selectedPanel}
         color={selectedColor}
-        pattern={selectedPattern}
         position={[2.5, -0.3, -1.5]}
         rotation={[0, 0.4, 0]}
         scale={0.9}
@@ -268,9 +155,8 @@ function ProductViewerScene({
 
 // Main Product Viewer Component
 export default function ProductViewer3D() {
-  const [selectedPanel, setSelectedPanel] = useState('wall-panel')
+  const [selectedPanel, setSelectedPanel] = useState('panels')
   const [selectedColor, setSelectedColor] = useState('#d4c5b0')
-  const [selectedPattern, setSelectedPattern] = useState('geometric')
   const [showSpecs, setShowSpecs] = useState(false)
 
   const panelData = panelTypes.find(p => p.id === selectedPanel) || panelTypes[0]
@@ -298,17 +184,9 @@ export default function ProductViewer3D() {
                   <ProductViewerScene
                     selectedPanel={selectedPanel}
                     selectedColor={selectedColor}
-                    selectedPattern={selectedPattern}
                     onPanelClick={handlePanelClick}
                   />
-                  <OrbitControls
-                    enablePan={true}
-                    enableZoom={true}
-                    enableRotate={true}
-                    autoRotate={false}
-                    maxDistance={10}
-                    minDistance={2}
-                  />
+                  <OrbitControls />
                 </Suspense>
               </Canvas>
               
@@ -336,7 +214,6 @@ export default function ProductViewer3D() {
                     onClick={() => {
                       setSelectedPanel(panel.id)
                       setSelectedColor(panel.colors[0])
-                      setSelectedPattern(panel.patterns[0])
                     }}
                     className={`w-full text-left p-3 rounded-lg transition ${
                       selectedPanel === panel.id
@@ -368,25 +245,7 @@ export default function ProductViewer3D() {
               </div>
             </div>
 
-            {/* Pattern Selector */}
-            <div>
-              <h3 className="text-lg font-semibold mb-3">Pattern</h3>
-              <div className="grid grid-cols-2 gap-2">
-                {panelData.patterns.map((pattern) => (
-                  <button
-                    key={pattern}
-                    onClick={() => setSelectedPattern(pattern)}
-                    className={`p-2 rounded-lg text-sm transition ${
-                      selectedPattern === pattern
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-muted hover:bg-muted/80'
-                    }`}
-                  >
-                    {pattern.charAt(0).toUpperCase() + pattern.slice(1)}
-                  </button>
-                ))}
-              </div>
-            </div>
+
 
             {/* Specs Panel */}
             {showSpecs && (
@@ -417,4 +276,4 @@ export default function ProductViewer3D() {
       </div>
     </section>
   )
-} 
+}
