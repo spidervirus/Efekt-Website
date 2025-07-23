@@ -169,7 +169,6 @@ export default function HeroSection() {
                     type="submit" 
                     className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 border border-blue-500/30 group"
                   >
-                    <span className="text-xl">🎯</span>
                     <span>Book Your Site Assessment</span>
                     <div className="w-2 h-2 bg-white/40 rounded-full animate-pulse group-hover:animate-bounce"></div>
                   </button>
@@ -180,13 +179,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
-      <div className="absolute bottom-16 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20 group cursor-pointer">
-        <div className="w-8 h-12 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl">
-          <div className="w-1.5 h-4 bg-gradient-to-b from-white to-blue-200 rounded-full mt-2 animate-pulse group-hover:animate-bounce"></div>
-        </div>
-        <div className="text-white/70 text-xs text-center mt-2 font-medium">Scroll</div>
-      </div>
+
     </section>
   )
 }
