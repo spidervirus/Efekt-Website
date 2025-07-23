@@ -15,7 +15,7 @@ const panelTypes = [
       absorption: '0.85-0.90 NRC',
       weight: '3.2-4.1kg'
     },
-    colors: ['#d4c5b0', '#c8b89f', '#ddd0c1', '#e8ddd2', '#8b7355', '#a0956b', '#f5f5f4', '#e7e5e4', '#d6d3d1', '#a8a29e', '#6b7280', '#374151']
+    colors: ['#f5f5dc', '#000000', '#0000ff', '#ffffff'] // cream, black, blue, white
   },
   {
     id: 'custom-design',
@@ -27,7 +27,7 @@ const panelTypes = [
       absorption: '0.85+ NRC',
       weight: 'Variable'
     },
-    colors: ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#8b5cf6', '#ec4899', '#06b6d4', '#10b981', '#f59e0b', '#84cc16', '#6366f1']
+    colors: [] // No colors for custom design
   }
 ]
 
@@ -156,7 +156,7 @@ function ProductViewerScene({
 // Main Product Viewer Component
 export default function ProductViewer3D() {
   const [selectedPanel, setSelectedPanel] = useState('panels')
-  const [selectedColor, setSelectedColor] = useState('#d4c5b0')
+  const [selectedColor, setSelectedColor] = useState('#f5f5dc') // cream color
   const [showSpecs, setShowSpecs] = useState(false)
 
   const panelData = panelTypes.find(p => p.id === selectedPanel) || panelTypes[0]
@@ -228,22 +228,24 @@ export default function ProductViewer3D() {
               </div>
             </div>
 
-            {/* Color Selector */}
-            <div>
-              <h3 className="text-lg font-semibold mb-3">Color</h3>
-              <div className="flex flex-wrap gap-2">
-                {panelData.colors.map((color) => (
-                  <button
-                    key={color}
-                    onClick={() => setSelectedColor(color)}
-                    className={`w-8 h-8 rounded-full border-2 transition ${
-                      selectedColor === color ? 'border-primary scale-110' : 'border-muted'
-                    }`}
-                    style={{ backgroundColor: color }}
-                  />
-                ))}
+            {/* Color Selector - Only show for panels, not custom design */}
+            {selectedPanel === 'panels' && (
+              <div>
+                <h3 className="text-lg font-semibold mb-3">Color</h3>
+                <div className="flex flex-wrap gap-2">
+                  {panelData.colors.map((color) => (
+                    <button
+                      key={color}
+                      onClick={() => setSelectedColor(color)}
+                      className={`w-8 h-8 rounded-full border-2 transition ${
+                        selectedColor === color ? 'border-primary scale-110' : 'border-muted'
+                      }`}
+                      style={{ backgroundColor: color }}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
 
 

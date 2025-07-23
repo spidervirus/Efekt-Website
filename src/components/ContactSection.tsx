@@ -12,11 +12,34 @@ export default function ContactSection() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would send the form data to your backend or show a success message
-    alert('Thank you! We will contact you soon.');
-    setForm({ name: '', phone: '', email: '', message: '' });
+    
+    try {
+      // Create mailto link with form data
+      const subject = encodeURIComponent('New Contact Form Submission from Efekt Website');
+      const body = encodeURIComponent(
+        `Name: ${form.name}\n` +
+        `Phone: ${form.phone}\n` +
+        `Email: ${form.email}\n` +
+        `Message: ${form.message}\n\n` +
+        `Submitted from: ${window.location.href}`
+      );
+      
+      const mailtoLink = `mailto:hello@efekt.ae?subject=${subject}&body=${body}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      // Show success message
+      alert('Thank you! Your message has been prepared in your email client. Please send it to complete your submission.');
+      
+      // Reset form
+      setForm({ name: '', phone: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting your form. Please try again or contact us directly at hello@efekt.ae');
+    }
   };
 
   return (
