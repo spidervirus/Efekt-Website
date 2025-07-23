@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
+import logo from '../assets/logo.PNG'
 
 const SECTIONS = [
   { id: 'home', label: 'Home' },
@@ -46,9 +47,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-2 cursor-pointer">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">E</span>
-            </div>
+            <img src={logo} alt="EFEKT Logo" className="h-10 w-auto" />
             <span className="text-xl font-bold text-white">EFEKT</span>
           </a>
 
