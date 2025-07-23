@@ -1,22 +1,18 @@
-# Welcome to your Lovable project
+# Efekt Acoustics -
 
-## Project info
+A modern website for Efekt Acoustics, showcasing custom acoustic panels and sound solutions in the UAE.
 
-**URL**: https://lovable.dev/projects/c4189cea-89c8-4564-bc89-5f8aca9578fa
+## Project Overview
 
-## How can I edit this code?
+This is a React-based website built with Vite, TypeScript, and Tailwind CSS, featuring:
+- Custom acoustic panel solutions
+- Interactive 3D components
+- Modern responsive design
+- Contact forms and WhatsApp integration
 
-There are several ways of editing your application.
+## Development
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/c4189cea-89c8-4564-bc89-5f8aca9578fa) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+To work on this project locally:
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -62,12 +58,18 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/c4189cea-89c8-4564-bc89-5f8aca9578fa) and click on Share -> Publish.
+This project can be deployed to various hosting platforms:
 
-## Can I connect a custom domain to my Lovable project?
+- **Vercel**: Connect your GitHub repository for automatic deployments
+- **Netlify**: Deploy directly from GitHub with continuous integration
+- **GitHub Pages**: Use GitHub Actions for automated deployment
 
-Yes, you can!
+## Building for Production
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```sh
+# Build the project for production
+npm run build
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+# Preview the production build locally
+npm run preview
+```
